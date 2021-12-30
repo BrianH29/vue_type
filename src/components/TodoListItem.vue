@@ -1,12 +1,9 @@
 <template>
   <div>
     <li>
-      <span
-        class="item"
-        :class="todoItem.done ? 'complete' : null"
-        @click="toggleItem"
-        >{{ todoItem.title }}</span
-      >
+      <span class="item" :class="todoItemsClass" @click="toggleItem">{{
+        todoItem.title
+      }}</span>
       <button @click="removeItem">DELETE</button>
     </li>
   </div>
@@ -23,6 +20,11 @@ export default Vue.extend({
     },
     index: {
       type: Number,
+    },
+  },
+  computed: {
+    todoItemsClass(): string | null {
+      return this.todoItem.done ? 'complete' : null;
     },
   },
   methods: {
