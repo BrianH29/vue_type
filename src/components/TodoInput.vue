@@ -1,7 +1,13 @@
 <template>
   <div>
     <label for="todo-input">TODO TODAY : </label>
-    <input id="todo-input" type="text" :value="item" @input="handleInput" />
+    <input
+      id="todo-input"
+      type="text"
+      :value="item"
+      @input="handleInput"
+      @keyup.enter="addTodo"
+    />
     <button @click="addTodo" type="button">add</button>
   </div>
 </template>
