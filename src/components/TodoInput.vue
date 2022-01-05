@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { VueEvent } from '@/types';
 
 export default Vue.extend({
   props: {
@@ -23,10 +24,12 @@ export default Vue.extend({
     },
   },
   methods: {
-    handleInput(event: InputEvent) {
-      // this.$emit('input', event.target.value);
-      const eventTarget = event.target as HTMLInputElement;
-      this.$emit('input', eventTarget.value);
+    handleInput(event: VueEvent.Input<HTMLInputElement>) {
+      event.target.value;
+      this.$emit('input', event.target.value);
+
+      // const eventTarget = event.target as HTMLInputElement;
+      // this.$emit('input', eventTarget.value);
     },
     addTodo() {
       this.$emit('add');
